@@ -25,7 +25,7 @@ fn select(mut n: Vec<i32>) -> Vec<i32> {
     n
 }
 
-// insettion sort
+// insertion sort
 fn insert(mut n: Vec<i32>) -> Vec<i32> {
     for i in 1..n.len() {
         for j in 0..i {
