@@ -39,6 +39,24 @@ fn insert(mut n: Vec<i32>) -> Vec<i32> {
     n
 }
 
+// quick
+fn quick(n: Vec<i32>) -> Vec<i32> {
+    if n.len() < 2 {
+        return n;
+    }
+    let pivot = vec![n[n.len() - 1]];
+    let mut smaller: Vec<i32> = Vec::new();
+    let mut larger: Vec<i32> = Vec::new();
+    for i in 0..(n.len() - 1) {
+        if n[i] < pivot[0] {
+            smaller.push(n[i]);
+        } else {
+            larger.push(n[i]);
+        }
+    }
+    [quick(smaller), pivot, quick(larger)].concat()
+}
+
 fn main() {
     println!("fib(9) is {}", fib(9));
     println!(
@@ -48,5 +66,9 @@ fn main() {
     println!(
         "[8,2,3,1,5,4,6,7] sorted is {:?}",
         insert(vec![8, 2, 3, 1, 5, 4, 6, 7])
+    );
+    println!(
+        "[8,2,3,1,5,4,6,7] sorted is {:?}",
+        quick(vec![8, 2, 3, 1, 5, 4, 6, 7])
     );
 }
