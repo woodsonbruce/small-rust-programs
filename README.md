@@ -1,2 +1,1 @@
-# rust-classics
-standard algorithms in rust
+# small-rust-programs
